@@ -1,0 +1,23 @@
+{
+  "name": "bmy-bank-api",
+  "version": "0.0.0",
+  "description": "BmyBankAPI",
+  "main": "app.js",
+  "author": {
+    "name": "smiron"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.3",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-sequence": "^3.2.0",
+    "mpromise": "^0.5.5",
+    "nodemailer": "^4.0.1",
+    "sequelize": "^3.30.4"
+  }
+}
