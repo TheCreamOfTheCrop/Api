@@ -10,14 +10,16 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
-    "express": "^4.15.2",
+    "express": "^4.16.2",
     "jwt-simple": "^0.5.1",
     "moment": "^2.18.1",
     "mongoose": "^4.9.3",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-sequence": "^3.2.0",
+    "morgan": "^1.9.0",
     "mpromise": "^0.5.5",
+    "mysql": "^2.15.0",
     "nodemailer": "^4.0.1",
-    "sequelize": "^3.30.4"
+    "sequelize": "^3.32.1"
   }
 }

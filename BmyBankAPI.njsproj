@@ -88,6 +88,9 @@
     <Compile Include="models\mysql\user.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\mysql\_sequelize.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\index.js">
       <SubType>Code</SubType>
     </Compile>
