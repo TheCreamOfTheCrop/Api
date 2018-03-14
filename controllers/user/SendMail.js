@@ -19,7 +19,7 @@ module.exports = function(user){
     });
     
     let mailOptions = {
-        from: '"Librarize me"', 
+        from: '"BmyBank"', 
         to: user.email, 
         subject: 'Récupération mot de passe',
         text: 'token : ' + token

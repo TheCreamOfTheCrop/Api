@@ -1,7 +1,7 @@
 ﻿module.exports = {
     path: {
         host: "localhost",
-        port: "9001"
+        port: "4100"
     },
     database: {
         database: 'bmybankdb',

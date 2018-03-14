@@ -2,11 +2,11 @@
 const userController = require('../../controllers/user');
 
 module.exports = function (req, res) {
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.email || !req.body.password || !req.body.lastname || !req.body.firstname) {
         res
             .status(config.constants.BAD_REQUEST)
             .json({
-                message: "Email and password are require",
+                message: " Some Informations are missing !",
                 success: false
             })
     }
@@ -16,7 +16,7 @@ module.exports = function (req, res) {
     const lastname = req.body.lastname;
     const password = req.body.password;
 
-    userController.register(email, firstname, lastname, password)
+    userController.register(email, password, ,lastname, firstname)
         .then((user) => {
             res
                 .status(config.constants.OK)
@@ -27,7 +27,7 @@ module.exports = function (req, res) {
                 })
         })
         .catch((err) => {
-            res
+            ress
                 .status(config.constants.BAD_REQUEST)
                 .json({
                     message: err.message || err,
