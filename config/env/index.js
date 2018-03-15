@@ -10,7 +10,7 @@ const config = (function () {
       return dev;
     default:
       return dev;
-
+    }
 }());
 
 module.exports = config;
