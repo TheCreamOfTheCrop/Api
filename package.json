@@ -23,7 +23,7 @@
     "sequelize": "^3.32.1"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js initDatabase"
   },
   "engines": {
     "node": "7.8.0",
