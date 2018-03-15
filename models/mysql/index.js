@@ -12,13 +12,13 @@ if (process.env.NODE_ENV === 'prod') {
   startConnection()
     .then(createDatabaseProd)
     .catch((err) => {
-      return Promise.reject(new Error("couldn't create db : " + err));
+      return Promise.reject(new Error("couldn't create db prod : " + err));
     });
 } else {
   startConnection()
     .then(createDatabase)
     .catch((err) => {
-      return Promise.reject(new Error("couldn't create db : " + err));
+      return Promise.reject(new Error("couldn't create db local: " + err));
     });
 }
 
