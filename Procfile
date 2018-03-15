@@ -1,1 +1,1 @@
-web: node app.js initDatabase
+web: node app.js
