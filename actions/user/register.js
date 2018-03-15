@@ -16,7 +16,7 @@ module.exports = function (req, res) {
     const lastname = req.body.lastname;
     const password = req.body.password;
 
-    userController.register(email, password, ,lastname, firstname)
+    userController.register(email, password, lastname, firstname)
         .then((user) => {
             res
                 .status(config.constants.OK)
