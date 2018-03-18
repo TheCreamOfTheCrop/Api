@@ -9,25 +9,27 @@ const resetDatabase = process.argv.includes('resetDatabase') || process.env.RESE
 
 
 if (process.env.NODE_ENV === 'prod') {
-  startConnection()
-    .then(createDatabaseProd)
-    .catch((err) => {
-      return Promise.reject(new Error("couldn't create db : " + err));
-    });
+    startConnection()
+        .then(createDatabaseProd)
+        .catch((err) => {
+        console.log("couldn't create db : " + err);
+})
+    ;
 } else {
-  startConnection()
-    .then(createDatabase)
-    .catch((err) => {
-      return Promise.reject(new Error("couldn't create db : " + err));
-    });
+    startConnection()
+        .then(createDatabase)
+        .catch((err) => {
+        console.log("couldn't create db : " + err);
+})
+    ;
 }
 
 function createDatabaseProd() {
-      return sequelize
+    return sequelize
         .sync({
-          force: true,
+            force: true,
         });
-    }
+}
 
 
 function createDatabase() {
