@@ -16,13 +16,13 @@ module.exports = function(email, password, res){
     
     function handleUserResponse(user) {
         if (!user) {
-            
+            return Promise.reject(new Error("Wrong email or password"));
         } else {
             if (bcrypt.compareSync(password, user.password)) {
                 createSession(user, res);
                 return user;
             } else {
-                return Promise.reject(new Error("Wrong password"));
+                return Promise.reject(new Error("Wrong email or password"));
             }
             
         }
