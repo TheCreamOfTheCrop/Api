@@ -6,7 +6,7 @@
     database: {
         database: 'bmybankdb',
         user: 'root',
-        password: '',
+        password: 'bemybank',
         port: 3306,
         option: {
 
