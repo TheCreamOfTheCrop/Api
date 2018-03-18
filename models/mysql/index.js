@@ -38,6 +38,6 @@ function createDatabase() {
     }
     return sequelize
         .sync({
-            force: resetDatabase,
+            force: true,
         });
 }
