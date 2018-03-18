@@ -29,7 +29,7 @@ module.exports = function (req, res) {
                 })
         })
         .catch((err) => {
-            ress
+            res
                 .status(config.constants.BAD_REQUEST)
                 .json({
                     message: err.message || err,
