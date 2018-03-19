@@ -15,8 +15,10 @@ module.exports = function (req, res) {
     const firstname = req.body.firstname;
     const lastname = req.body.lastname;
     const password = req.body.password;
+    const description = req.body.description;
+    const isAccountValidate = req.body.isAccountValidate;
 
-    userController.register(email, password, lastname, firstname)
+    userController.register(email, password, lastname, firstname, description, isAccountValidate)
         .then((user) => {
             res
                 .status(config.constants.OK)
@@ -27,7 +29,7 @@ module.exports = function (req, res) {
                 })
         })
         .catch((err) => {
-            ress
+            res
                 .status(config.constants.BAD_REQUEST)
                 .json({
                     message: err.message || err,

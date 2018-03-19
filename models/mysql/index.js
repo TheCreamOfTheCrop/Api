@@ -23,11 +23,11 @@ if (process.env.NODE_ENV === 'prod') {
 }
 
 function createDatabaseProd() {
-      return sequelize
+    return sequelize
         .sync({
-          force: true,
+            force: true,
         });
-    }
+}
 
 
 function createDatabase() {
