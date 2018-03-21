@@ -1,6 +1,7 @@
 module.exports = {
   path: {
     host: 'still-cove-11874.herokuapp.com',
+    port: '5000'
     full_path: 'https://still-cove-11874.herokuapp.com/',
   },
   database: {
