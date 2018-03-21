@@ -4,8 +4,8 @@
 //Pour bien proteger
 const config = (function () {
   switch (process.env.NODE_ENV) {
-    case 'prod':
-      return production;
+    case 'production':
+      return prod;
     case 'dev':
       return dev;
     default:
