@@ -8,7 +8,7 @@ const initDatabase = process.argv.includes('initDatabase') || process.env.INIT_D
 const resetDatabase = process.argv.includes('resetDatabase') || process.env.RESET_DB;
 
 
-if (process.env.NODE_ENV === 'prod') {
+if (process.env.NODE_ENV === 'production') {
   startConnection()
     .then(createDatabaseProd)
     .catch((err) => {
