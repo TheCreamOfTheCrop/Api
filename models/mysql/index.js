@@ -23,9 +23,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 function createDatabaseProd() {
+  if (!initDatabase) {
+      return Promise.reject(false);
+  }
     return sequelize
         .sync({
-            force: true,
+            force: resetDatabase,
         });
 }
 
