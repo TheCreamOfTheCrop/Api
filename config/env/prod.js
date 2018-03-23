@@ -13,4 +13,11 @@ module.exports = {
       dialect: 'mysql',
     },
   },
+  token: {
+      secret: 'bmybank',
+      expires: 30 * 60 * 1000 // 5 minutes
+  },
+  cookie: {
+      expires: 24 * 60 * 60 * 1000 //  1 day
+  }
 };
