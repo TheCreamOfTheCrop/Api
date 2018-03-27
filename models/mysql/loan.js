@@ -1,4 +1,5 @@
 ﻿const sequelize = require('./_sequelize').sequelize;
+const Sequelize = require('sequelize');
 
 const Loan = (_sequelize, DataTypes) => {
     return sequelize.define('loan', {
@@ -68,4 +69,4 @@ const Loan = (_sequelize, DataTypes) => {
         });
 };
 
-module.exports = sequelize.import('user', User);
+module.exports = sequelize.import('loan', Loan);
