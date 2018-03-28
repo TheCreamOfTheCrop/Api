@@ -3,7 +3,7 @@ const userController = require('../../controllers/user');
 var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (req, res) {
-    const id = req.body.user.id;
+    const id = req.body.id;
     var userUpdate = {};
 
     if (req.body.email) {

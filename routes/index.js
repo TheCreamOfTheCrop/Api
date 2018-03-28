@@ -1,7 +1,6 @@
 ﻿const config = require('../config');
 const user = require('./user');
 
-const checkSession = require('../controllers/user/checkSession');
 module.exports = function (router){
 
     router.get('/', function (req, res) {
@@ -12,5 +11,5 @@ module.exports = function (router){
         });
     });
 
-    user(router, checkSession);
+    user(router);
 };
