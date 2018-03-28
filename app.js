@@ -7,7 +7,8 @@ const app = express();
 config.middlewares(app);
 routes(app);
 
-app.listen(config.env.path.port, function () {
+
+app.listen(config.env.path.port || process.env.PORT, function () {
     console.log(process.env.NODE_ENV);
     console.log(`listening on : ${config.env.path.host}:${config.env.path.port}`);
 });
