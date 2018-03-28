@@ -1,0 +1,3 @@
+C:\Users\smiron\source\repos\BmyBankAPI\BmyBankAPI\obj\Debug\BmyBankAPI.njsprojResolveAssemblyReference.cache
+C:\Users\smiron\source\repos\BmyBankAPI\BmyBankAPI\obj\Debug\BmyBankAPI.njsproj.CoreCompileInputs.cache
+C:\Users\smiron\source\repos\BmyBankAPI\BmyBankAPI\bin\Microsoft.NodejsTools.WebRole.dll
