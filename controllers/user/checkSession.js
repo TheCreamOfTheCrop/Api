@@ -5,7 +5,7 @@ const createSession = require('./createSession');
 const deleteSession = require('./deleteSession');
 
 module.exports = function(req, res, next){
-    const token = req.cookies.accessTokenLibrarize;
+    const token = req.headers.Authorization;
     if (token) {
         const decoded = jwt.decode(token, config.env.token.secret);
         if (decoded.exp <= Date.now()) {

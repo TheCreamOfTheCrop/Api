@@ -3,7 +3,7 @@ const config = require('../../config');
 const moment = require('moment');
 
 module.exports = function(user, res){
-    const expires = moment().add(15, 'm').valueOf();
+    const expires = moment().add(100, 'm').valueOf();
     const token = jwt.encode({
         iss: user.uid,
         exp: expires

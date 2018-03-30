@@ -5,7 +5,7 @@ const User = require('../../models/mysql/user');
 
 
 module.exports = function (req, res) {
-    const id = req.body.id;
+    const id = req.body.user.id;
     var userUpdate = {};
 
     // We check if someone is already using this email in database
