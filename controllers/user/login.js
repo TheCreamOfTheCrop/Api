@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(email, password, res){
     if (!email || !password) {
+		console.log('coucou');
         return Promise.reject(new Error('email and password are required'));
     }
 
@@ -16,10 +17,13 @@ module.exports = function(email, password, res){
     
     function handleUserResponse(user) {
         if (!user) {
+			console.log('coucou1');
             return Promise.reject(new Error("Wrong email or password"));
         } else {
             if (bcrypt.compareSync(password, user.password)) {
-                createSession(user, res);
+				console.log('coucou2');
+                res.send(createSession(user, res));
+				console.log('coucou3');
                 return user;
             } else {
                 return Promise.reject(new Error("Wrong email or password"));

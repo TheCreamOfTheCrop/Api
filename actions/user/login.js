@@ -1,5 +1,6 @@
 ﻿const config = require('../../config');
 const userController = require('../../controllers/user');
+const createSession = require('../../controllers/user/createSession');
 
 module.exports = function (req, res) {
     if (!req.body.email || !req.body.password) {
@@ -24,8 +25,10 @@ module.exports = function (req, res) {
                     message: "successful connexion",
                     success: true
                 });
+			
         })
         .catch((err) => {
+			console.log('coucouzizi');
             res
                 .status(config.constants.BAD_REQUEST)
                 .json({
