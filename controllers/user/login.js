@@ -2,9 +2,9 @@ const User = require('../../models/mysql/user');
 const createSession = require('./createSession');
 var bcrypt = require('bcrypt-nodejs');
 
-module.exports = function(email, password, res){
+module.exports = function(email, password){
+    let user;
     if (!email || !password) {
-		console.log('coucou');
         return Promise.reject(new Error('email and password are required'));
     }
 
@@ -13,22 +13,22 @@ module.exports = function(email, password, res){
           email: email
         }
     })
-    .then(handleUserResponse);
-    
-    function handleUserResponse(user) {
+    .then(u => user = u)
+    .then(handleUserResponse)
+    .then(retrieveToken)
+
+
+    function handleUserResponse() {
         if (!user) {
-			console.log('coucou1');
             return Promise.reject(new Error("Wrong email or password"));
-        } else {
-            if (bcrypt.compareSync(password, user.password)) {
-				console.log('coucou2');
-                res.send(createSession(user, res));
-				console.log('coucou3');
-                return user;
-            } else {
-                return Promise.reject(new Error("Wrong email or password"));
-            }
-            
         }
+
+        if (!bcrypt.compareSync(password, user.password)) {
+          return Promise.reject(new Error("Wrong email or password"));
+        }
+    }
+
+    function retrieveToken() {
+      return createSession(user);
     }
 }

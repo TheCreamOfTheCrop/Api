@@ -15,7 +15,7 @@ module.exports = {
   },
   token: {
       secret: 'bmybank',
-      expires: 30 * 60 * 1000 // 5 minutes
+      expires: 30 * 60 * 1000 * 1000000
   },
   cookie: {
       expires: 24 * 60 * 60 * 1000 //  1 day

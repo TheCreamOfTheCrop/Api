@@ -5,30 +5,16 @@ const createSession = require('./createSession');
 const deleteSession = require('./deleteSession');
 
 module.exports = function(req, res, next){
-    const token = req.headers.Authorization;
+    const token = req.headers.authorization;
     if (token) {
         const decoded = jwt.decode(token, config.env.token.secret);
+        console.log(decoded);
         if (decoded.exp <= Date.now()) {
-            deleteSession(res);
-            res.end('Access token has expired', 400);
-        } else {
-            User.findOne({
-              where: {
-                  uid: decoded.iss
-              }
-            })
-            .then(handleUserSessionResponse)
+          return res.end('Access token has expired', 400);
         }
+        req.user = decoded.payload;
+        return next();
     } else {
-        res.end('You need to be connected to access api', 400);
-    }
-    function handleUserSessionResponse(user) {
-        if (!user) {
-            res.end('This user doesn\'t exist', 400);
-        } else {
-            createSession(user, res);
-            req.body.user = user.dataValues;
-            return next();
-        }
+        return res.end('You need to be connected to access api', 400);
     }
 }

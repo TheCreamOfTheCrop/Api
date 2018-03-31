@@ -4,7 +4,7 @@ const createSession = require('../../controllers/user/createSession');
 
 module.exports = function (req, res) {
     if (!req.body.email || !req.body.password) {
-        res
+      return res
             .status(config.constants.BAD_REQUEST)
             .json({
                 message: "Email and password are require",
@@ -16,20 +16,19 @@ module.exports = function (req, res) {
     const password = req.body.password;
 
 
-    userController.login(email, password, res)
-        .then((user) => {
-            res
+    userController.login(email, password)
+        .then((token) => {
+          return res
                 .status(config.constants.OK)
                 .json({
-                    user,
+                    token,
                     message: "successful connexion",
                     success: true
                 });
-			
+
         })
         .catch((err) => {
-			console.log('coucouzizi');
-            res
+          return res
                 .status(config.constants.BAD_REQUEST)
                 .json({
                     message: err.message || err,
