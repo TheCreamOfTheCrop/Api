@@ -17,11 +17,11 @@ module.exports = function (req, res) {
 
 
     userController.login(email, password)
-        .then((token) => {
+        .then((result) => {
           return res
                 .status(config.constants.OK)
                 .json({
-                    token,
+                    result,
                     message: "successful connexion",
                     success: true
                 });

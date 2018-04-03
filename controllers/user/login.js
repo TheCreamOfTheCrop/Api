@@ -31,4 +31,5 @@ module.exports = function(email, password){
     function retrieveToken() {
       return createSession(user);
     }
+	
 }
