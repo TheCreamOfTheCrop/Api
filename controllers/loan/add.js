@@ -34,7 +34,7 @@ module.exports = function(amount,description,rate,user_id,delay){
     .then(handleLoanResponse);
   
     function handleLoanResponse(loan) {
-        if(!loan || loan[0] == null) {
+        if(!loan) {
             return Promise.reject(new Error("Couldn't create loan"));
         } else {
             return loan;
