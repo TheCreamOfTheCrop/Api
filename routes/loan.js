@@ -1,5 +1,5 @@
 const loanAction = require('../actions/loan');
 
-module.exports = function (router) {
-    router.post('/loan/add', loanAction.add);
+module.exports = function (router, checkSession) {
+    router.post('/loan/add', [checkSession], loanAction.add);
 }

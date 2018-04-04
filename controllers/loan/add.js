@@ -1,6 +1,6 @@
 const Loan = require('../../models/mysql/loan');
 
-module.exports = function(amount,description,rate,user_id,delay){
+module.exports = function(amount,description,rate,id,delay){
     if (!amount) {
         return Promise.reject(new Error('amount is required'));
     }
@@ -10,7 +10,7 @@ module.exports = function(amount,description,rate,user_id,delay){
     if (!rate) {
         return Promise.reject(new Error('rate is required'));
     }
-    if (!user_id) {
+    if (!id) {
         return Promise.reject(new Error('user id is required'));
     }
 	
@@ -25,8 +25,8 @@ module.exports = function(amount,description,rate,user_id,delay){
       description: description,
       rate: rate,
       loan_type: 'public',
-	  state_id: 'en anttente',
-      user_requester_id: user_id,
+	  state_id: 'en attente',
+      user_requester_id: id,
 	  delay: delay
   };
 

@@ -3,7 +3,7 @@ const deleteSession = require('./deleteSession');
 
 module.exports = function(res, req){
 	
-if(!req.headers.Authorization) {
+if(!req.headers.authorization) {
         return Promise.reject(new Error("No session exist"));
     } else {
         deleteSession(res);

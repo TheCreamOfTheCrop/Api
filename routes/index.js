@@ -14,6 +14,6 @@ module.exports = function (router){
     });
 
     user(router, checkSession);
-	loan(router);
+	loan(router, checkSession);
 	
 };
