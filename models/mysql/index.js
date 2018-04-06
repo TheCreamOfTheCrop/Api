@@ -3,6 +3,7 @@ const startConnection = require('./_sequelize').start;
 
 const User = require('./user');
 const Loan = require('./loan');
+const Negociate = require('./negociate');
 
 
 const initDatabase = process.argv.includes('initDatabase') || process.env.INIT_DB;
