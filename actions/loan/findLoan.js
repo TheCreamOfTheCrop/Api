@@ -20,11 +20,11 @@ module.exports = function(req, res) {
 	const state_id = req.body.state_id;
     
     loanController.findLoan(user_id,state_id)
-    .then((loan) => {
+    .then((loans) => {
         res
         .status(config.constants.OK)
         .json({
-            loan,
+            loans,
             success: true
         });
     })

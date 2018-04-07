@@ -2,7 +2,16 @@
 const userController = require('../../controllers/user');
 
 module.exports = function (req, res) {
-    const id = req.user.id;
+
+    if (!req.body.id) {
+        return res
+            .status(config.constants.BAD_REQUEST)
+            .json({
+                message: "Id is require",
+                success: false
+            })
+    }
+    const id = req.body.id;
 
     userController.user(id)
         .then((user) => {
