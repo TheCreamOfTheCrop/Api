@@ -13,7 +13,7 @@ module.exports = function(amount,description,rate,id,delay){
     if (!id) {
         return Promise.reject(new Error('user id is required'));
     }
-	
+
 	if (!delay) {
         return Promise.reject(new Error('delay is required'));
     }
@@ -25,20 +25,20 @@ module.exports = function(amount,description,rate,id,delay){
       description: description,
       rate: rate,
       loan_type: 'public',
-	  state_id: 'en attente',
+	    state_id: 'en attente',
       user_requester_id: id,
 	  delay: delay
   };
 
   return Loan.create(newLoan)
     .then(handleLoanResponse);
-  
+
     function handleLoanResponse(loan) {
         if(!loan) {
             return Promise.reject(new Error("Couldn't create loan"));
         } else {
             return loan;
         }
-        
+
     }
 }
