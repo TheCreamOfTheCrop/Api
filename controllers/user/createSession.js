@@ -7,7 +7,6 @@ module.exports = function(user){
     const expires = moment().add(12, 'MM').valueOf();
     const token = jwt.encode({
         iss: user.uid,
-        exp: expires,
         payload: user
     }, config.env.token.secret);
 	
