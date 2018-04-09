@@ -19,7 +19,7 @@ module.exports = function(req, res) {
         res
         .status(config.constants.OK)
         .json({
-            loan,
+            loans: loan,
             success: true
         });
     })
