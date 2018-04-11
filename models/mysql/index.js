@@ -4,7 +4,7 @@ const startConnection = require('./_sequelize').start;
 const User = require('./user');
 const Loan = require('./loan');
 const Negociate = require('./negociate');
-
+const Friend = require('./friend');
 
 const initDatabase = process.argv.includes('initDatabase') || process.env.INIT_DB;
 const resetDatabase = process.argv.includes('resetDatabase') || process.env.RESET_DB;

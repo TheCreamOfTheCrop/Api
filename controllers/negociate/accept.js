@@ -27,6 +27,12 @@ module.exports = function(id, loanUpdate){
     }
 
     function destroyNegociation() {
+      console.log("passe par destroy");
+        return Negociation.destroy({
 
+            where: {
+              id_loan: id,
+            }
+        })
     }
 }
