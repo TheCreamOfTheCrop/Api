@@ -1,17 +1,18 @@
 const config = require('../../config');
-const NegociateController = require('../../controllers/negociate');
+const loanController = require('../../controllers/loan');
 const Loan = require('../../models/mysql/user');
-const Negociate = require('../../models/mysql/negociate');
 
 
 
 module.exports = function(req, res) {
 
-    const id = req.user.id;
-    const id_nego = req.body.id_nego;
+    const id_loan = req.body.id_loan;
+    var loanUpdate = {};
+    loanUpdate.user_provider_id = req.user.id;
+    loanUpdate.state_id = "en cours";
 
-    NegociateController.accept(id_nego)
-    .then((nego) => {
+    loanController.accept(id_loan,loanUpdate)
+    .then((loan) => {
         res
         .status(config.constants.OK)
         .json({
