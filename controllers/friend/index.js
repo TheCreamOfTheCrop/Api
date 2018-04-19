@@ -1,15 +1,16 @@
 const add = require('./add');
-//const findFriend = require('./findFriend');
-//const request = require('./request');
+const remove = require('./remove');
+const friend = require('./friend');
 const accept = require('./accept');
 const reject = require('./reject');
-//const friend = require('./friend');
+const request = require('./request');
+
 
 module.exports = {
     add,
-    //findFriend,
-    //request,
-    reject,
+    remove,
+    friend,
     accept,
-    //friend,
+    reject,
+    request,
 }
