@@ -7,9 +7,7 @@ module.exports = function(id){
     }
     return Loan.findAll({
         where: {
-          $not: [{ user_requester_id: id }],
-            state_id: 'en attente',
-            loan_type: 'public'
+            user_requester_id: id 
         },
     })
     .then(l => loan = l)
