@@ -2,7 +2,7 @@ const Negociate = require('../../models/mysql/negociate');
 
 module.exports = function(id_user,id_loan,amount,rate,delay){
 	
-	let negociation;
+	let nego;
 	var newNego = {};
 
     if (!id_user) {
@@ -36,19 +36,24 @@ module.exports = function(id_user,id_loan,amount,rate,delay){
 			  id_user_negociate: id_user
 		  },
 	})
-	.then(n => negociation = n)
+	.then(n => nego = n)
 	.then(handleNegociateResponse)
 
     function handleNegociateResponse(nego) {
-        if(!nego) {
+        if(nego[0] == 0) {
             return Negociate.create(newNego)
         } else {
+			
+			var id_nego = nego.id_negociate;
+			
+			
             return Negociate.update(
 					newNego,
 					{
 						where : {
-							id_loan: id_loan,
-							id_user_negociate: id_user
+							id: id_nego,
+							id_loan: id_loan
+							
 						},
 					}
 				)
