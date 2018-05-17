@@ -40,11 +40,12 @@ module.exports = function(id_user,id_loan,amount,rate,delay){
 	.then(handleNegociateResponse)
 
     function handleNegociateResponse(nego) {
-        if(nego[0] == 0) {
+
+        if(!nego) {
             return Negociate.create(newNego)
         } else {
 			
-			var id_nego = nego.id_negociate;
+			var id_nego = nego.id;
 			
 			
             return Negociate.update(

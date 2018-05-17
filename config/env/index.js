@@ -15,12 +15,12 @@ const config = (function () {
       config = dev;
     }
 
-    if (!process.env.SENDGRID_PRIVATE_KEY)
-      throw 'Sois pas con, rajoute ta variable d\'env';
+    //if (!process.env.SENDGRID_PRIVATE_KEY)
+      //throw 'Sois pas con, rajoute ta variable d\'env';
 
-    config.sendgrid = {
-      private_key : process.env.SENDGRID_PRIVATE_KEY,
-    }
+    //config.sendgrid = {
+      //private_key : process.env.SENDGRID_PRIVATE_KEY,
+    //}
 
     return config;
 }());
