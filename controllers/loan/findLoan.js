@@ -11,7 +11,10 @@ module.exports = function(user_id,state_id){
 		
 		return Loan.findAll({
         where: {
-            user_requester_id: user_id
+			$or: [
+           { user_requester_id: user_id },
+		   { user_provider_id: user_id}
+			]
         },
     })
 	.then(l => loan = l)
