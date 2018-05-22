@@ -21,7 +21,10 @@ module.exports = function (app) {
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
         // Request methods you wish to allow
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        next();
+        if (req.method === "OPTIONS") 
+            res.send(200);
+        else 
+            next();    
     });
     // Use morgan to log incomming requests
     app.use(morgan('dev'));
