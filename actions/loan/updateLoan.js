@@ -3,19 +3,19 @@ const loanController = require('../../controllers/loan');
 
 module.exports = function(req, res) {
     var loanUpdate = {};
-    let loan_id;
-
-    if (!req.body.id_loan) {
+	let loan_id;
+	
+	if (!req.body.id_loan) {
         res
-            .status(config.constants.BAD_REQUEST)
-            .json({
-                message: "missing the loan id",
-                success: false
-            })
+        .status(config.constants.BAD_REQUEST)
+        .json({
+            message: "missing the loan id",
+            success: false
+        })
     }
-
-    loan_id = req.body.id_loan;
-
+	
+	loan_id = req.body.id_loan;
+    
     if (req.body.amount) {
         loanUpdate.amount = req.body.amount;
     }
@@ -36,20 +36,20 @@ module.exports = function(req, res) {
     }
 
     loanController.updateLoan(loan_id, loanUpdate)
-        .then((result) => {
+    .then((result) => {
         res
         .status(config.constants.OK)
         .json({
             message: "Successful update",
             success: true
         });
-})
-.catch((err) => {
+    })
+    .catch((err) => {
         res
         .status(config.constants.BAD_REQUEST)
         .json({
             message:err.message || err,
             success: false
         });
-});
+    });
 };
