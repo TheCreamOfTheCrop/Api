@@ -16,7 +16,11 @@ module.exports = function (amount, loan_id) {
         }
     }).then((loan) => {
 
-        const totalNeeded = parseFloat(parseFloat(loan.amount) + parseFloat(parseFloat(loan.amount) * (parseFloat(loan.rate)/100)));
+        if (loan.state_id !== "en cours") {
+            return Promise.reject(new Error("Loan's state cannot handle refund"))
+        }
+
+        const totalNeeded = parseFloat(parseFloat(loan.amount) + parseFloat(parseFloat(loan.amount) * (parseFloat(loan.rate) / 100)));
 
         console.log("amount ! " + parseFloat(loan.amount));
         console.log("rate ! " + parseFloat(loan.rate));
@@ -28,9 +32,12 @@ module.exports = function (amount, loan_id) {
             return Promise.reject(new Error("Loan already completely refunded"))
         }
 
+        const isLastRefund = totalNeeded <= (parseFloat(loan.totalRefunded) + parseFloat(amount));
+
         return Loan.update(
             {
-                totalRefunded: parseFloat(loan.totalRefunded) + parseFloat(amount)
+                totalRefunded: parseFloat(loan.totalRefunded) + parseFloat(amount),
+                state_id: isLastRefund ? "finis" : "en cours"
             },
             {
                 where: {
