@@ -16,6 +16,7 @@ const Loan = (_sequelize, DataTypes) => {
         },
         totalRefunded: {
             type: DataTypes.FLOAT,
+            allowNull: false,
         },
         amount: {
             type: DataTypes.FLOAT,

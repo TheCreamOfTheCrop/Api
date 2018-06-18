@@ -18,7 +18,6 @@ function start() {
             .catch(handleErrors);
     });
 
-
     function connectionLogs() {
         return console.log(
             `Mysql DB ${config.env.database.database} connected on port ${config.env.database.port}.`

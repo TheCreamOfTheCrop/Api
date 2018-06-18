@@ -10,21 +10,27 @@ module.exports = function (amount, loan_id) {
     }
 
 
-    Loan.findOne({
+    return Loan.findOne({
         where: {
             id: loan_id
         }
     }).then((loan) => {
 
-        const totalNeeded = loan.amount + (loan.amount * loan.rate);
+        const totalNeeded = parseFloat(parseFloat(loan.amount) + parseFloat(parseFloat(loan.amount) * (parseFloat(loan.rate)/100)));
 
-        if (loan.totalRefunded >= totalNeeded) {
+        console.log("amount ! " + parseFloat(loan.amount));
+        console.log("rate ! " + parseFloat(loan.rate));
+        console.log("amount * rate ! " + parseFloat(loan.amount) * parseFloat(loan.rate));
+        console.log("totalNeeded ! " + parseFloat(totalNeeded));
+        console.log("totalrefunded ! " + parseFloat(loan.totalRefunded));
+
+        if (parseFloat(loan.totalRefunded) >= totalNeeded) {
             return Promise.reject(new Error("Loan already completely refunded"))
         }
 
-        Loan.update(
+        return Loan.update(
             {
-                totalRefunded: loan.totalRefunded + amount
+                totalRefunded: parseFloat(loan.totalRefunded) + parseFloat(amount)
             },
             {
                 where: {
@@ -47,7 +53,7 @@ module.exports = function (amount, loan_id) {
 
 
     }).catch((err) => {
-        console.log("error retriving loan by id")
+        console.log("error retriving loan by id " + err)
     })
 
 
