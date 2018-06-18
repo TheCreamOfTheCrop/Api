@@ -14,6 +14,9 @@ const Loan = (_sequelize, DataTypes) => {
             unique: true,
             allowNull: false,
         },
+        totalRefunded: {
+            type: DataTypes.FLOAT,
+        },
         amount: {
             type: DataTypes.FLOAT,
             allowNull: false,
@@ -34,7 +37,7 @@ const Loan = (_sequelize, DataTypes) => {
             allowNull: false,
         },
         state_id: {
-            type: DataTypes.ENUM('en attente', 'en négociation', 'en cours','finis'),
+            type: DataTypes.ENUM('en attente', 'en négociation', 'en cours', 'finis'),
             allowNull: false,
         },
         user_requester_id: {
@@ -61,11 +64,11 @@ const Loan = (_sequelize, DataTypes) => {
         }
 
     }, {
-            paranoid: true,
-            timestamps: true,
-            underscored: true,
-            freezeTableName: true,
-        });
+        paranoid: true,
+        timestamps: true,
+        underscored: true,
+        freezeTableName: true,
+    });
 };
 
 module.exports = sequelize.import('loan', Loan);

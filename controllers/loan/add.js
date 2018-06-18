@@ -1,6 +1,6 @@
 const Loan = require('../../models/mysql/loan');
 
-module.exports = function(amount,description,rate,id,delay){
+module.exports = function (amount, description, rate, id, delay) {
     if (!amount) {
         return Promise.reject(new Error('amount is required'));
     }
@@ -14,27 +14,27 @@ module.exports = function(amount,description,rate,id,delay){
         return Promise.reject(new Error('user id is required'));
     }
 
-	if (!delay) {
+    if (!delay) {
         return Promise.reject(new Error('delay is required'));
     }
 
 
+    const newLoan = {
+        totalRefunded: 0,
+        amount: amount,
+        description: description,
+        rate: rate,
+        loan_type: 'public',
+        state_id: 'en attente',
+        user_requester_id: id,
+        delay: delay
+    };
 
-    var newLoan = {
-      amount: amount,
-      description: description,
-      rate: rate,
-      loan_type: 'public',
-	    state_id: 'en attente',
-      user_requester_id: id,
-	  delay: delay
-  };
-
-  return Loan.create(newLoan)
-    .then(handleLoanResponse);
+    return Loan.create(newLoan)
+        .then(handleLoanResponse);
 
     function handleLoanResponse(loan) {
-        if(!loan) {
+        if (!loan) {
             return Promise.reject(new Error("Couldn't create loan"));
         } else {
             return loan;
