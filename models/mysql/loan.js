@@ -18,6 +18,9 @@ const Loan = (_sequelize, DataTypes) => {
             type: DataTypes.FLOAT,
             allowNull: false,
         },
+        acceptationDate: {
+            type: DataTypes.FLOAT,
+        },
         amount: {
             type: DataTypes.FLOAT,
             allowNull: false,
