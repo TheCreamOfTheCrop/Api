@@ -5,6 +5,8 @@ const User = require('./user');
 const Loan = require('./loan');
 const Negociate = require('./negociate');
 const Friend = require('./friend');
+const Refund = require('./refund');
+const Note = require('./note');
 
 const initDatabase = process.argv.includes('initDatabase') || process.env.INIT_DB;
 const resetDatabase = process.argv.includes('resetDatabase') || process.env.RESET_DB;

@@ -4,6 +4,7 @@ const loan = require('./loan');
 const negociate = require('./negociate');
 const friend = require('./friend');
 const refund = require('./refund');
+const note = require('./note');
 
 const checkSession = require('../controllers/user/checkSession');
 module.exports = function (router){
@@ -21,5 +22,6 @@ module.exports = function (router){
     negociate(router, checkSession);
 	friend(router, checkSession);
 	refund(router, checkSession);
+	note(router, checkSession);
 
 };
