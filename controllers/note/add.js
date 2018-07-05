@@ -1,6 +1,7 @@
 const Note = require('../../models/mysql/note');
 
-module.exports = function (note, comments) {
+module.exports = function (note, comments, id, id_provider) {
+	
     if (!note) {
         return Promise.reject(new Error('note is required'));
     }
@@ -10,7 +11,9 @@ module.exports = function (note, comments) {
 
     const newNote = {
         note: note,
-        comments: comments
+        comments: comments,
+		user_requester_id: id,
+		user_provider_id: id_provider
     };
 
     return Note.create(newNote)

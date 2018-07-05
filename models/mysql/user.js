@@ -37,6 +37,11 @@ const User = (_sequelize, DataTypes) => {
         isAccountValidate: {
             type: DataTypes.BOOLEAN,
         },
+		note: {
+            type: DataTypes.FLOAT,
+            allowNull: true,
+        },
+		
     }, {
             paranoid: true,
             timestamps: true,
