@@ -34,6 +34,15 @@ const Note = (_sequelize, DataTypes) =>
             onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
         },
+        loan_id: {
+            type: DataTypes.BIGINT,
+            references: {
+                model: 'loan',
+                key: 'id',
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
+        }
     }, {
         paranoid: true,
         timestamps: true,

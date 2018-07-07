@@ -30,12 +30,22 @@ module.exports = function(req, res) {
         })
     }
 
+    if (!req.body.loan_id) {
+        res
+            .status(config.constants.BAD_REQUEST)
+            .json({
+                message: "Missing the loan id",
+                success: false
+            })
+    }
+
     const note = req.body.note;
     const comments = req.body.comments;
-	const id_provider = req.body.user_id
+	const id_provider = req.body.user_id;
+	const loan_id = req.body.loan_id;
 
 
-    NoteController.add(note, comments, id, id_provider)
+    NoteController.add(note, comments, id, id_provider, loan_id)
         .then((note) => {
         res
         .status(config.constants.OK)
