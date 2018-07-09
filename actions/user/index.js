@@ -5,6 +5,7 @@ const update = require('./update');
 const forgetPassword = require('./forgetPassword');
 const resetPassword = require('./resetPassword');
 const user = require('./user');
+const deleteUser = require('./deleteUser');
 
 module.exports = {
     register,
@@ -14,4 +15,5 @@ module.exports = {
     forgetPassword,
     resetPassword,
     user,
+    deleteUser
 }

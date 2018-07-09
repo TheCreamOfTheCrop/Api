@@ -7,5 +7,6 @@ module.exports = function (router, checkSession) {
     router.put('/user', [checkSession], userAction.update);
     router.post('/user/resetPassword', userAction.resetPassword);
     router.post('/user/forgetPassword', userAction.forgetPassword);
-    router.post('/user',  [checkSession], userAction.user);
+    router.post('/user', [checkSession], userAction.user);
+    router.post('/user/delete', [checkSession], userAction.deleteUser);
 }
